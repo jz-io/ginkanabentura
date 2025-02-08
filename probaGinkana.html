@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Ginkana proba</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        body {
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Entzun nahi dezu Union Pasaitarraren istorioa?</h1>
+    <button class="button" id="yesButton">Bai</button>
+    <button class="button" id="noButton">Ez</button>
+
+    <script>
+        document.getElementById('yesButton').addEventListener('click', function() {
+            document.body.innerHTML = '<img src="https://i.postimg.cc/52XGfymQ/aita-Manuel2.jpg" alt="Image"><br><button class="button" id="backButton">Atzera</button>';
+            document.getElementById('backButton').addEventListener('click', function() {
+                location.reload();
+            });
+        });
+
+        document.getElementById('noButton').addEventListener('click', function() {
+            var width = 560;
+            var height = 315;
+            var left = (screen.width / 2) - (width / 2);
+            var top = (screen.height / 2) - (height / 2);
+            window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "", `width=${width},height=${height},top=${top},left=${left}`);
+        });
+    </script>
+</body>
+</html>
