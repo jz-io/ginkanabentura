@@ -1,2 +1,1 @@
-Kaixo, jziokitarrak!
-HTML fitxategiekin pixkat kuxkuxeatzen ari naz, eta "ginkana" moduko hau prestatu degu. Zuen gusutukoa izatea espero!
+# Aukerakoa, printzipioz ez da irakurriko baina aukera badago.
