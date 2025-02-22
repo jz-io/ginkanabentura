@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>Ginkanabentura</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        body {
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .input {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mesedez, sartu zure izena</h1>
+    <input type="text" id="username" class="input" placeholder="Zure izena">
+    <button class="button" id="submitButton">Bidali</button>
+
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function() {
+            var username = document.getElementById('username').value;
+            if (username) {
+                // Save the username to localStorage
+                localStorage.setItem('username', username);
+                // Redirect to P0.html
+                window.location.href = 'https://jz-io.github.io/ginkanabentura/P0.html';
+            } else {
+                alert('Mesedez, sartu zure izena.');
+            }
+        });
+    </script>
+</body>
+</html>
