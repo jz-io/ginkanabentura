@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>Ginkana Proba</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        body {
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .input {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Galdera 1</h1>
+    <p>Zer da zure kolore gogokoena?</p>
+    <input type="text" id="answer" class="input" placeholder="Zure erantzuna">
+    <button class="button" id="submitButton">Bidali</button>
+
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function() {
+            var answer = document.getElementById('answer').value;
+            var username = localStorage.getItem('username');
+            if (answer && username) {
+                // Save the answer to the server
+                fetch('save_answer.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username: username, answer: answer })
+                }).then(response => response.text()).then(data => {
+                    console.log(data);
+                    // Redirect to the next question or the end page
+                    window.location.href = 'https://jz-io.github.io/ginkanabentura/Amaiera.html';
+                });
+            } else {
+                alert('Mesedez, sartu zure erantzuna.');
+            }
+        });
+    </script>
+</body>
+</html>
