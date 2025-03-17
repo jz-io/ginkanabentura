@@ -39,11 +39,10 @@
             });
         });
         document.getElementById('noButton').addEventListener('click', function() {
-            var width = 560;
-            var height = 315;
-            var left = (screen.width / 2) - (width / 2);
-            var top = (screen.height / 2) - (height / 2);
-            window.open("https://www.youtube.com/watch?v=uHgt8giw1LY", "", `width=${width},height=${height},top=${top},left=${left}`);
+            document.body.innerHTML = '<iframe src="https://drive.google.com/file/d/1JwiEwmDVcjheULcKDKVsYnaNEnIsFVaQ/preview" width="560" height="315" allow="autoplay"></iframe><br><button class="button" id="backButton">Atzera</button>';
+            document.getElementById('backButton').addEventListener('click', function() {
+                location.reload();
+            });
         });
     </script>
 </body>
