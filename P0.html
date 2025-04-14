@@ -32,8 +32,8 @@
     </style>
 </head>
 <body>
-    <h1>Galdera 1</h1>
-    <p>Zer da zure kolore gogokoena?</p>
+    <h1>1. galdera</h1>
+    <p>Zein da zure kolore gogokoena?</p>
     <input type="text" id="answer" class="input" placeholder="Zure erantzuna">
     <button class="button" id="submitButton">Bidali</button>
 
@@ -42,22 +42,16 @@
             var answer = document.getElementById('answer').value;
             var username = localStorage.getItem('username');
             if (answer && username) {
-                // Save the answer to the server
-                fetch('save_answer.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ username: username, answer: answer })
-                }).then(response => response.text()).then(data => {
-                    console.log(data);
-                    // Redirect to the next question or the end page
-                    window.location.href = 'https://jz-io.github.io/ginkanabentura/Amaiera.html';
-                });
+                localStorage.setItem('answer', answer);
+                console.log('Answer saved locally:', answer);
+                window.location.href = 'https://jz-io.github.io/ginkanabentura/Amaiera.html';
             } else {
                 alert('Mesedez, sartu zure erantzuna.');
             }
         });
+
+        var savedAnswer = localStorage.getItem('answer');
+        console.log('Saved answer:', savedAnswer);
     </script>
 </body>
 </html>
