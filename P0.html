@@ -42,16 +42,22 @@
             var answer = document.getElementById('answer').value;
             var username = localStorage.getItem('username');
             if (answer && username) {
-                localStorage.setItem('answer', answer);
-                console.log('Answer saved locally:', answer);
-                window.location.href = 'https://jz-io.github.io/ginkanabentura/Amaiera.html';
+                // Save the answer to the server
+                fetch('save_answer.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username: username, answer: answer })
+                }).then(response => response.text()).then(data => {
+                    console.log(data);
+                    // Redirect to the next question or the end page
+                    window.location.href = 'https://jz-io.github.io/ginkanabentura/Amaiera.html';
+                });
             } else {
                 alert('Mesedez, sartu zure erantzuna.');
             }
         });
-
-        var savedAnswer = localStorage.getItem('answer');
-        console.log('Saved answer:', savedAnswer);
     </script>
 </body>
 </html>
